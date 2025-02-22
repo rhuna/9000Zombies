@@ -37,9 +37,32 @@ int main() {
     //window.setView(mainView);
     //switch to hudview
     //window.setView(hudview);
-    
-    
-    
+
+    //background
+    sf::VertexArray background;
+    background.setPrimitiveType(sf::PrimitiveType::Triangles);
+    background.resize(10 * 10 * 6);
+    sf::Texture texBackground;
+    texBackground.loadFromFile("./graphics/background_sheet.png");
+
+    //top triangle
+    background[0].position = sf::Vector2f(0, 0);
+    background[1].position = sf::Vector2f(49, 0);
+    background[2].position = sf::Vector2f(49, 49);
+    //bottom triangle
+    background[3].position = sf::Vector2f(49, 49);
+    background[4].position = sf::Vector2f(0, 49);
+    background[5].position = sf::Vector2f(0, 0);
+    //top triangle
+    background[0].texCoords = sf::Vector2f(0, 0);
+    background[1].texCoords = sf::Vector2f(49, 0);
+    background[2].texCoords = sf::Vector2f(49, 49);
+    //bottom triangle
+    background[3].texCoords = sf::Vector2f(49, 49);
+    background[4].texCoords = sf::Vector2f(0, 49);
+    background[5].texCoords = sf::Vector2f(0, 0);
+
+
     /////////////////////////////////////////////////////////////////
     
     //setup non initialized variables
@@ -154,7 +177,7 @@ int main() {
             window.clear();
             window.setView(mainView);
             window.draw(player.getSprite());
-           
+            window.draw(background, &texBackground);
            
         }
         if (state == State::LEVELING_UP) {
