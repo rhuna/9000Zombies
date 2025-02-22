@@ -19,9 +19,9 @@ public:
 	//where is the center of the player
 	sf::Vector2f getCenter();
 	//what angle is the player facing
-	float getRotation();
+	sf::Angle getRotation();
 	//send copy of sprite to the main function
-	sf::Sprite getSpriet();
+	sf::Sprite getSprite();
 
 	void moveRight();
 	void moveLeft();
@@ -47,12 +47,14 @@ public:
 	//how much health does the player currently have
 	int getHealth();
 
+	sf::Vector2f getposition();
+	sf::IntRect getarena();
+	sf::Vector2f getresolution();
 private:
 	const float START_SPEED = 200;
 	const float START_HEALTH = 100;
 
 	//player position
-	
 	sf::Vector2f m_position;
 
 	//sprite texture
@@ -78,9 +80,9 @@ private:
 	bool m_rightPressed;
 
 	//how much health does the player have
-	int m_Health;
+	float m_Health;
 	//max health
-	int m_maxHealth;
+	float m_maxHealth;
 
 	// when was the player last hit
 	sf::Time m_lastHit;
