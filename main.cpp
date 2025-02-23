@@ -200,11 +200,14 @@
 #include "SFML/Graphics.hpp"
 #include "Zombie_arena.h"
 #include "Player.h"
+#include "TextureHolder.h"
 #include <cstdlib> // For rand() and srand()
 #include <ctime>   // For time()
 
 int main() {
-    std::srand(std::time(0)); // Seed random number generator once
+   // std::srand(std::time(0)); // Seed random number generator once
+
+    TextureHolder textureHolder;
 
     enum class State {
         PAUSED, LEVELING_UP, GAMEOVER, PLAYING
@@ -234,6 +237,14 @@ int main() {
         std::cerr << "Error loading background texture!" << std::endl;
         return -1;
     }
+
+    //prepare horde of zombies
+    int numZombies;
+    int numZombiesAlive;
+    Zombie* zombies = nullptr;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     sf::Clock clock;
     sf::Time totalGameTime;
@@ -282,25 +293,46 @@ int main() {
                         arena.position.y = 1000;
                         createBackground(background, arena);
                         player.spawn(arena, resolution, 50);
+
+
+                        numZombies = 10;
+
+                        
+                        zombies = createHorde(numZombies, arena);
+                        numZombiesAlive = numZombies;
+
                         clock.restart();
                     }
                 }
             }
         }
-
+        //updating the frame
         if (state == State::PLAYING) {
             sf::Time dt = clock.restart();
             totalGameTime += dt;
             mouseScreenPosition = sf::Mouse::getPosition(window);
             mouseWorldPosition = window.mapPixelToCoords(mouseScreenPosition, mainView);
             player.update(dt.asSeconds(), mouseScreenPosition);
-            mainView.setCenter(player.getPosition().getCenter());
+            sf::Vector2f playerPosition(player.getPosition().getCenter());
+            mainView.setCenter(playerPosition);
+            //loop through zombie and update them
+            for (int i = 0; i < numZombies; i++) {
+                if (zombies[i].isAlive()) {
+                    zombies[i].update(dt.asSeconds(), playerPosition);
+                }
+            }
         }
 
         window.clear();
+
+
         if (state == State::PLAYING) {
             window.setView(mainView);
             window.draw(background, &texBackground);
+            for (int i = 0; i < numZombies; i++) {
+                std::cout << i;
+                window.draw(zombies[i].getSprite());
+            }
             window.draw(player.getSprite());
         }
         if (state == State::LEVELING_UP) {
@@ -314,6 +346,9 @@ int main() {
         }
         window.display();
     }
+
+    delete[] zombies;
+
     return 0;
 }
 

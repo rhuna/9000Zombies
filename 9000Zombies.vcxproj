@@ -152,13 +152,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="createBackground.cpp" />
+    <ClCompile Include="createHorde.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="TextureHolder.cpp" />
+    <ClCompile Include="Zombie.cpp" />
     <ClCompile Include="Zombie_arena.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="createBackground.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="TextureHolder.h" />
+    <ClInclude Include="Zombie.h" />
     <ClInclude Include="Zombie_arena.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
