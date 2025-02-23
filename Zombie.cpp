@@ -5,8 +5,9 @@
 Zombie::Zombie() :
 	m_Sprite(m_texture), m_Alive(true), m_Health(100)
 {
-
-	spawn(m_Position.x, m_Position.y, 2, 32);
+	for (int i = 0; i < 3; i++) {
+		spawn(m_Position.x + (std::rand() % 100), m_Position.y + (std::rand() % 100), i, 32);
+	}
 };
 
 
@@ -78,7 +79,7 @@ void Zombie::update(float elapsedTime, sf::Vector2f playerLocation) {
 	if (playerX < m_Position.x) {
 		m_Position.x = m_Position.x - m_Speed * elapsedTime;
 	}
-	if (playerY > m_Position.y) {
+	if (playerY < m_Position.y) {
 		m_Position.y = m_Position.y - m_Speed * elapsedTime;
 	}
 	m_Sprite.setPosition(m_Position);

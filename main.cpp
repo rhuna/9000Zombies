@@ -295,7 +295,7 @@ int main() {
                         player.spawn(arena, resolution, 50);
 
 
-                        numZombies = 10;
+                        numZombies = 50;
 
                         
                         zombies = createHorde(numZombies, arena);

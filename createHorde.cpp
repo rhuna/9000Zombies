@@ -6,10 +6,10 @@ Zombie* createHorde(int numZombies, sf::IntRect arena) {
 	Zombie* zombies = new Zombie[numZombies];
 
 
-	int maxY = arena.position.y-20;
-	int minY = arena.position.y+20;
-	int maxX = arena.position.x-20;
-	int minX = arena.position.x+20;
+	int maxY = arena.position.y+1;
+	int minY = arena.position.y-1000;
+	int maxX = arena.position.x+1;
+	int minX = arena.position.x-1000;
 
 
 
@@ -17,7 +17,7 @@ Zombie* createHorde(int numZombies, sf::IntRect arena) {
 		//which side should the zombie spawn
 		std::srand((int)time(0) * i);
 		int side = (std::rand() % 4);
-		float x=1, y=1;
+		float x=0, y=0;
 		switch (side) {
 			case 1:
 				//left
