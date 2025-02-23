@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include "TextureHolder.h"
 
 Player::Player(const sf::Texture playerTexture) :
 	m_sprite(playerTexture), m_tileSize(15), m_texture(playerTexture)
@@ -14,8 +15,7 @@ Player::Player(const sf::Texture playerTexture) :
 	m_rightPressed = false;
 
 	//associate a texture with the sprite
-	sf::Texture texture;
-	texture.loadFromFile("./graphics/player.png");
+	sf::Texture texture = TextureHolder::getTexture("./graphics/player.png");
 	m_texture = texture;
 	m_sprite.setTexture(m_texture);
 

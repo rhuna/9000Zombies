@@ -4,6 +4,7 @@
 #define ZOMBIE_ARENA_H
 
 #include "Zombie.h"
+#include "TextureHolder.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <cstdlib>
