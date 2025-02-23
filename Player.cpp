@@ -1,8 +1,8 @@
 #include "Player.h"
 #include <SFML/Graphics.hpp>
 
-Player::Player(const sf::Texture& playerTexture) :
-	m_sprite(playerTexture), m_tileSize(15)
+Player::Player(const sf::Texture &playerTexture) :
+	m_sprite(playerTexture), m_tileSize(15), m_texture(playerTexture)
 {
 	m_Speed = START_SPEED;
 	m_Health = START_HEALTH;
@@ -14,6 +14,9 @@ Player::Player(const sf::Texture& playerTexture) :
 	m_rightPressed = false;
 
 	//associate a texture with the sprite
+	sf::Texture texture;
+	texture.loadFromFile("./graphics/player.png");
+	m_texture = texture;
 	m_sprite.setTexture(m_texture);
 
 	//set origin

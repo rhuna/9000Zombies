@@ -151,11 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="createBackground.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Zombie_arena.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="createBackground.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Zombie_arena.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
