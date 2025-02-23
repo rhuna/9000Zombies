@@ -1,5 +1,7 @@
+//#include "Zombie_arena.h"	
+//#include <cstdlib> // For rand() and srand()
+//#include <ctime>   // For time()
 
-#include "Zombie_arena.h"
 
 //int createBackground(sf::VertexArray& rVA, sf::IntRect arena) {
 //	//anything we do to the rVA will be done to the background
@@ -17,78 +19,39 @@
 //	//START AT THE BEGINNING OF THE VERTEX ARRAY
 //	int currentVertex = 0;
 //
-	//for (int w = 0; w < worldWidth; w++) {
-	//	for (int h = 0; h < worldHeight; h++) {
-	//		// Triangle 1: Top-left, Top-right, Bottom-right
-	//		rVA[currentVertex + 0].position = sf::Vector2f(w * TILE_SIZE, h * TILE_SIZE); // Top-left
-	//		rVA[currentVertex + 1].position = sf::Vector2f((w + 1) * TILE_SIZE, h * TILE_SIZE); // Top-right
-	//		rVA[currentVertex + 2].position = sf::Vector2f((w + 1) * TILE_SIZE, (h + 1) * TILE_SIZE); // Bottom-right
-	//
-	//		// Triangle 2: Bottom-right, Bottom-left, Top-left
-	//		rVA[currentVertex + 3].position = sf::Vector2f((w + 1) * TILE_SIZE, (h + 1) * TILE_SIZE); // Bottom-right
-	//		rVA[currentVertex + 4].position = sf::Vector2f(w * TILE_SIZE, (h + 1) * TILE_SIZE); // Bottom-left
-	//		rVA[currentVertex + 5].position = sf::Vector2f(w * TILE_SIZE, h * TILE_SIZE); // Top-left
-	//
-	//		// Texture coordinate assignment
-	//		if (h == 0 || h == worldHeight - 1 || w == 0 || w == worldWidth - 1) {
-	//			// Wall texture for edges
-	//			for (int i = 0; i < VERTS_IN_TRIANGLES; ++i) {
-	//				rVA[currentVertex + i].texCoords = sf::Vector2f(0, TILE_SIZE * 2); // Assuming wall texture is at this offset
-	//			}
-	//		}
-	//		else {
-	//			// Random floor texture
-	//			int verticalOffset = (std::rand() % TILE_TYPES) * TILE_SIZE;
-	//			for (int i = 0; i < VERTS_IN_TRIANGLES; ++i) {
-	//				rVA[currentVertex + i].texCoords = sf::Vector2f(0, verticalOffset); // Get texture from vertical offset
-	//			}
-	//		}
-	//		currentVertex += VERTS_IN_TRIANGLES;
-	//	}
-	//};
-
-
-
-	//for (int w = 0; w < worldWidth; w++) {
-	//	for (int h = 0; h < worldHeight; h++){
-	//		//position each vertex in the current triangle
-	//		rVA[currentVertex + 0].position = sf::Vector2f(((w * TILE_SIZE) + TILE_SIZE), h * TILE_SIZE);
-	//		rVA[currentVertex + 1].position = sf::Vector2f(w * TILE_SIZE, h * TILE_SIZE);
-	//		rVA[currentVertex + 2].position = sf::Vector2f(((w * TILE_SIZE) + TILE_SIZE), (h * TILE_SIZE) + TILE_SIZE);
-	//		rVA[currentVertex + 3].position = sf::Vector2f(((w * TILE_SIZE) - TILE_SIZE), (h * TILE_SIZE) - TILE_SIZE);
-	//		rVA[currentVertex + 4].position = sf::Vector2f(w * TILE_SIZE, h * TILE_SIZE);
-	//		rVA[currentVertex + 5].position = sf::Vector2f(((w * TILE_SIZE) - TILE_SIZE), h * TILE_SIZE);
-	//
-	//	
-	//	
-	//
-	//		//define the ositio in the texture for current triangles
-	//		//either grass, stone bush or wall
-	//		// In createBackground.cpp
-	//		if (h == 0 || h == worldHeight - 1 || w == 0 || w == worldWidth - 1) {
-	//			// Wall texture for edges
-	//			rVA[currentVertex + 0].texCoords = sf::Vector2f(0, TILE_SIZE * 2);
-	//			rVA[currentVertex + 1].texCoords = sf::Vector2f(TILE_SIZE, TILE_SIZE * 2);
-	//			rVA[currentVertex + 2].texCoords = sf::Vector2f(TILE_SIZE, TILE_SIZE * 3);
-	//			rVA[currentVertex + 3].texCoords = sf::Vector2f(TILE_SIZE, TILE_SIZE * 3);
-	//			rVA[currentVertex + 4].texCoords = sf::Vector2f(0, TILE_SIZE * 3);
-	//			rVA[currentVertex + 5].texCoords = sf::Vector2f(0, TILE_SIZE * 2);
-	//		}
-	//		else {
-	//			// Random floor texture
-	//			int verticalOffset = (std::rand() % TILE_TYPES) * TILE_SIZE;
-	//			rVA[currentVertex + 0].texCoords = sf::Vector2f(0, verticalOffset);
-	//			rVA[currentVertex + 1].texCoords = sf::Vector2f(TILE_SIZE, verticalOffset);
-	//			rVA[currentVertex + 2].texCoords = sf::Vector2f(TILE_SIZE, verticalOffset + TILE_SIZE);
-	//			rVA[currentVertex + 3].texCoords = sf::Vector2f(TILE_SIZE, verticalOffset + TILE_SIZE);
-	//			rVA[currentVertex + 4].texCoords = sf::Vector2f(0, verticalOffset + TILE_SIZE);
-	//			rVA[currentVertex + 5].texCoords = sf::Vector2f(0, verticalOffset);
-	//		}
-	//
-	//		currentVertex = currentVertex + VERTS_IN_TRIANGLES;
-	//	}
-	//}
-	
+//	for (int w = 0; w < worldWidth; w++) {
+//		for (int h = 0; h < worldHeight; h++) {
+//			// Triangle 1: Top-left, Top-right, Bottom-right
+//			rVA[currentVertex + 0].position = sf::Vector2f(w * TILE_SIZE, h * TILE_SIZE); // Top-left
+//			rVA[currentVertex + 1].position = sf::Vector2f((w + 1) * TILE_SIZE, h * TILE_SIZE); // Top-right
+//			rVA[currentVertex + 2].position = sf::Vector2f((w + 1) * TILE_SIZE, (h + 1) * TILE_SIZE); // Bottom-right
+//
+//			// Triangle 2: Bottom-right, Bottom-left, Top-left
+//			rVA[currentVertex + 3].position = sf::Vector2f((w + 1) * TILE_SIZE, (h + 1) * TILE_SIZE); // Bottom-right
+//			rVA[currentVertex + 4].position = sf::Vector2f(w * TILE_SIZE, (h + 1) * TILE_SIZE); // Bottom-left
+//			rVA[currentVertex + 5].position = sf::Vector2f(w * TILE_SIZE, h * TILE_SIZE); // Top-left
+//
+//			// Texture coordinate assignment
+//			if (h == 0 || h == worldHeight - 1 || w == 0 || w == worldWidth - 1) {
+//				// Wall texture for edges
+//				for (int i = 0; i < VERTS_IN_TRIANGLES; ++i) {
+//					rVA[currentVertex + i].texCoords = sf::Vector2f(0, TILE_SIZE * 2); // Assuming wall texture is at this offset
+//				}
+//			}
+//			else {
+//				// Random floor texture
+//				int verticalOffset = (std::rand() % TILE_TYPES) * TILE_SIZE;
+//				for (int i = 0; i < VERTS_IN_TRIANGLES; ++i) {
+//					rVA[currentVertex + i].texCoords = sf::Vector2f(0, verticalOffset); // Get texture from vertical offset
+//				}
+//			}
+//			currentVertex += VERTS_IN_TRIANGLES;
+//		}
+//	};
+//	return TILE_SIZE;
+//}
+ 
+#include "Zombie_arena.h"	
 #include <cstdlib> // For rand() and srand()
 #include <ctime>   // For time()
 

@@ -1,7 +1,7 @@
-#include "Player.h"
 #include <SFML/Graphics.hpp>
+#include "Player.h"
 
-Player::Player(const sf::Texture &playerTexture) :
+Player::Player(const sf::Texture playerTexture) :
 	m_sprite(playerTexture), m_tileSize(15), m_texture(playerTexture)
 {
 	m_Speed = START_SPEED;
@@ -63,7 +63,7 @@ sf::Vector2f Player::getCenter() {
 	return m_position;
 };
 //what angle is the player facing
-sf::Angle Player::getRotation() {// need to figure this out need a way to convert to angle.
+sf::Angle Player::getRotation() {
 	return m_sprite.getRotation();
 };
 //send copy of sprite to the main function
@@ -122,20 +122,20 @@ void Player::update(float elapsedTime, sf::Vector2i mousePosition) {
 	
 	//keep the player in the arena
 	//right side of screen
-	if (m_position.x > 1900 - m_tileSize) {
-		m_position.x = 1900 - m_tileSize;
+	if (m_position.x > 2000/2 - m_tileSize) {
+		m_position.x = 2000/2 - m_tileSize;
 	}
 	//left side of the screen
-	if (m_position.x < 100 - m_tileSize) {
-		m_position.x = 100 - m_tileSize;
+	if (m_position.x < 10 - m_tileSize) {
+		m_position.x = 10 - m_tileSize;
 	}
 	//bottom side of screen
-	if (m_position.y > 1000 - m_tileSize) {
-		m_position.y = 1000 - m_tileSize;
+	if (m_position.y > 1800/2 - m_tileSize) {
+		m_position.y = 1800/2 - m_tileSize;
 	}
 	//top of the screen
-	if (m_position.y < 100 - m_tileSize) {
-		m_position.y = 100 - m_tileSize;
+	if (m_position.y <  -m_tileSize*2) {
+		m_position.y =  -m_tileSize*2;
 	}
 	float angle = std::atan2(mousePosition.y - m_resolution.y / 2.0f, mousePosition.x - m_resolution.x / 2.0f);
 	sf::Angle angle2 = sf::degrees(angle);

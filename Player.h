@@ -1,6 +1,6 @@
 #pragma once
 #ifndef PLAYER_H
-
+#define PLAYER_H
 #include<iostream>
 #include<SFML/Graphics.hpp>
 
@@ -8,7 +8,7 @@
 class Player{
 public:
 	
-	Player(const sf::Texture &playerTexture);
+	Player(const sf::Texture playerTexture);
 	void spawn(sf::IntRect arena, sf::Vector2f resolution, int tileSize);
 	//call this at the end of everygame
 	void resetPlayerStats();

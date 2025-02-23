@@ -1,10 +1,6 @@
 // 9000Zombies.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <iostream>
-#include "SFML/Graphics.hpp"
-#include "Zombie_arena.h"
-#include "Player.h"
 
 
 
@@ -215,7 +211,7 @@ int main() {
     };
     State state = State::GAMEOVER;
 
-    sf::Vector2f resolution(1920, 1080);
+    sf::Vector2f resolution(1920/2, 1080/2);
 
     sf::Texture playerTexture;
     if (!playerTexture.loadFromFile("./graphics/player.png")) {
@@ -224,13 +220,15 @@ int main() {
     }
     Player player(playerTexture);
 
-    sf::VideoMode vm;
+    sf::VideoMode vm({ 1920,1080 });
     sf::RenderWindow window(vm, "zombies");
 
     sf::View mainView;
     sf::View hudView;
-
+    //mainView.rotate(sf::degrees(45));
     sf::VertexArray background;
+
+
     sf::Texture texBackground;
     if (!texBackground.loadFromFile("./graphics/background_sheet.png")) {
         std::cerr << "Error loading background texture!" << std::endl;
@@ -280,8 +278,8 @@ int main() {
                         state = State::PLAYING;
                         //arena.left = 0;
                         //arena.top = 0;
-                        arena.position.x = 750;
-                        arena.position.y = 750;
+                        arena.position.x = 1000;
+                        arena.position.y = 1000;
                         createBackground(background, arena);
                         player.spawn(arena, resolution, 50);
                         clock.restart();
@@ -296,7 +294,7 @@ int main() {
             mouseScreenPosition = sf::Mouse::getPosition(window);
             mouseWorldPosition = window.mapPixelToCoords(mouseScreenPosition, mainView);
             player.update(dt.asSeconds(), mouseScreenPosition);
-            //mainView.setCenter(player.getPosition());
+            mainView.setCenter(player.getPosition().getCenter());
         }
 
         window.clear();
