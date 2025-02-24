@@ -9,6 +9,7 @@ class Player{
 public:
 	
 	Player(const sf::Texture playerTexture);
+	~Player();
 	void spawn(sf::IntRect arena, sf::Vector2f resolution, int tileSize);
 	//call this at the end of everygame
 	void resetPlayerStats();

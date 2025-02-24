@@ -86,6 +86,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>C:\libraries\SFML\SFML-3.0.0-32bit\include\</AdditionalIncludeDirectories>
+      <AdditionalModuleDependencies>kernel32.dll</AdditionalModuleDependencies>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,6 +105,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>C:\libraries\SFML\SFML-3.0.0-32bit\include\</AdditionalIncludeDirectories>
+      <AdditionalModuleDependencies>kernel32.dll</AdditionalModuleDependencies>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,6 +124,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>C:\libraries\SFML\SFML-3.0.0-32bit\include\</AdditionalIncludeDirectories>
+      <AdditionalModuleDependencies>kernel32.dll</AdditionalModuleDependencies>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,6 +143,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>C:\libraries\SFML\SFML-3.0.0-32bit\include\</AdditionalIncludeDirectories>
+      <AdditionalModuleDependencies>kernel32.dll</AdditionalModuleDependencies>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,14 +155,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="TextureHolder.cpp" />
     <ClCompile Include="Zombie.cpp" />
     <ClCompile Include="Zombie_arena.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="TextureHolder.h" />
     <ClInclude Include="Zombie.h" />
     <ClInclude Include="Zombie_arena.h" />

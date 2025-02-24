@@ -11,6 +11,7 @@ public:
 
 	//handle hit of zombie by bullet
 	Zombie();
+	~Zombie();
 	bool hit();
 	bool isAlive();
 	void spawn(float startX, float startY, int type, int seed);

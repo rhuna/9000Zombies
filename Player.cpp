@@ -22,8 +22,11 @@ Player::Player(const sf::Texture playerTexture) :
 	//set origin
 	//for more accurate set to center of player
 	m_sprite.setOrigin({ -25,-100 });
+	std::cout << "player created\n";
 }
-
+Player::~Player() {
+	std::cout << "player deleted\n";
+}
 void Player::spawn(sf::IntRect arena, sf::Vector2f resolution, int tileSize) {
 	m_position.x = arena.position.x / 2;
 	m_position.y = arena.position.y / 2;

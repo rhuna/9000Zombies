@@ -7,6 +7,7 @@ TextureHolder* TextureHolder::m_s_Instance = nullptr;
 TextureHolder::TextureHolder() {
 	assert(m_s_Instance == nullptr);
 	m_s_Instance = this;
+	std::cout << "textureholder created\n";
 };
 sf::Texture& TextureHolder::getTexture(std::string const& filename){
 	//get a reference to m_textures using m_s_instance

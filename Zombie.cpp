@@ -5,11 +5,12 @@
 Zombie::Zombie() :
 	m_Sprite(m_texture), m_Alive(true), m_Health(100)
 {
-	for (int i = 0; i < 3; i++) {
-		spawn(m_Position.x + (std::rand() % 100), m_Position.y + (std::rand() % 100), i, 32);
-	}
+		spawn(m_Position.x + (std::rand() % 10), m_Position.y + (std::rand() % 10), 3, 32);
+		std::cout << "zombie created\n";
 };
-
+Zombie::~Zombie() {
+	std::cout << "zombie deleted\n";
+}
 
 bool Zombie::hit() {
 	m_Health--;
@@ -49,8 +50,8 @@ void Zombie::spawn(float startX, float startY, int type, int seed) {
 	//MODIFY THE SPEED TO MAKE THE ZOMBIE UNIQUE
 	//CREATE A SPEED MODIFIER
 	std::srand((int)time(0) * seed);
-	//const int MAX_VARIANCE = 66;
-	//const int OFFSET = 123 - MAX_VARIANCE;
+	const int MAX_VARIANCE = 66;
+	const int OFFSET = 123 - MAX_VARIANCE;
 	float modifier = (std::rand() % MAX_VARIANCE) + OFFSET +0.1f;
 	modifier /= 100;
 	m_Speed *= modifier;
